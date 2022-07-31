@@ -1,0 +1,16 @@
+version: "3.0"
+services:
+ mongo:
+   image: mongo
+   restart: always
+   environment:
+     MONGO INITDB ROOT_USERNAME: root
+     MONGO INITDS ROOT PASSWORD: example
+app:
+  build: .
+  ports:
+    - '8080:5000'
+environment:
+  ME CONFIG MONGODB ADMINUSERNAME: root
+  ME CONFIG MONGODB ADMINPASSWORD: example
+  ME CONFIG MONGODB URL: mongodb://root:example@mongo:27017/
